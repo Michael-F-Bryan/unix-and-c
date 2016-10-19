@@ -6,6 +6,13 @@
 #define TRUE 1
 #define FALSE 0
 
+// Make a `test` macro which will automatically run our tests and print
+// a tick if it was successful
+#define test(name, function_call) \
+      printf("testing %s... ", name); \
+      function_call(); \
+      printf("passed \u2714\n");
+
 
 int test_new_list() {
     Node *head = new_list(5);
@@ -44,14 +51,9 @@ int test_push() {
 }
 
 void run_tests() {
-    printf("testing constructor\n");
-    test_new_list();
-
-    printf("testing push\n");
-    test_push();
-
-    printf("testing pop\n");
-    test_pop();
+    test("constructor", test_new_list);
+    test("push", test_push);
+    test("pop", test_pop);
 }
 
 

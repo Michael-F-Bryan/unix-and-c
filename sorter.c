@@ -19,11 +19,8 @@ Node* new_list(int value) {
 // Return a new list with value at the front and `head` as the tail.
 Node* push(Node *head, int value) {
     Node *new = malloc(sizeof(Node));
-    printf("head = %x, new = %x\n", head, new);
     new->value = value;
     new->next = head;
-
-    printf("new->next = %x\n", new->next);
 
     return new;
 }
