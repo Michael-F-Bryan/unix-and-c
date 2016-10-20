@@ -1,4 +1,4 @@
-CC = clang
+CC = gcc
 CFLAGS = -g -Wall -pedantic
 OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
 HEADERS = $(wildcard *.h)
