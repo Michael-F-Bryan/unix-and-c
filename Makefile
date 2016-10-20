@@ -1,4 +1,4 @@
-CC = gcc
+CC = clang
 CFLAGS = -g -Wall -pedantic
 OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
 HEADERS = $(wildcard *.h)
@@ -10,6 +10,7 @@ run_tests: test
 	-clear
 	@echo "Running Tests"
 	@echo "============="
+	@echo
 	./test
 
 %.o: %.c $(HEADERS)
@@ -20,4 +21,5 @@ test: $(OBJECTS)
 
 clean:
 	-rm -f $(OBJECTS)
+	-rm -f *.gch
 	-rm -f test
