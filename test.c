@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sorter.h"
+#include "sorting.h"
 
 #define TRUE 1
 #define FALSE 0

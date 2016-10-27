@@ -1,0 +1,4 @@
+Student string, Age int, Mark float
+Michael, 21, 80
+Tom, 20, 75
+Nikki, 22, 66
