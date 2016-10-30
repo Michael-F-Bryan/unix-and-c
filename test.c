@@ -1,28 +1,26 @@
+#include "sorting.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "sorting.h"
 
 #define TRUE 1
 #define FALSE 0
 
 // Make a `test` macro which will automatically run our tests and print
 // a tick if it was successful. Otherwise it prints a cross.
-#define test(name, function_call) \
-          printf("testing %s... ", name); \
-          if(function_call()) { \
-            printf("passed \u2714\n"); \
-          } else { \
-            printf("failed \u2718\n"); \
-          }
-
+#define test(name, function_call)                                              \
+  printf("testing %s... ", name);                                              \
+  if (function_call()) {                                                       \
+    printf("passed \u2714\n");                                                 \
+  } else {                                                                     \
+    printf("failed \u2718\n");                                                 \
+  }
 
 // Define an assert macro which will test an expression and return FALSE
 // if it is not true.
-#define assert(expr) \
-if((expr) == FALSE) { \
-  return FALSE; \
-}
-
+#define assert(expr)                                                           \
+  if ((expr) == FALSE) {                                                       \
+    return FALSE;                                                              \
+  }
 
 int test_new_list() {
   Node *head = new_list(5);
@@ -33,7 +31,6 @@ int test_new_list() {
   return TRUE;
 }
 
-
 int test_pop() {
   Node *head = new_list(5);
   int val = pop(&head);
@@ -41,7 +38,6 @@ int test_pop() {
   assert(head == NULL);
   return TRUE;
 }
-
 
 // Push a value onto the list and make sure it looks the way we expect
 int test_push() {
@@ -69,7 +65,7 @@ int test_len() {
   // Add a bunch of stuff to the list and make sure length changes
   // appropriately
   int values[] = {1, 2, 3, 4, 5};
-  for (int i=0; i < 5; i++) {
+  for (int i = 0; i < 5; i++) {
     head = push(head, values[i]);
   }
   assert(len(head) == 6);
@@ -77,12 +73,11 @@ int test_len() {
   return TRUE;
 }
 
-
 // Given an array of values, create a new list from them (note: list is
 // reversed)
-Node* make_list(int values[], int length) {
+Node *make_list(int values[], int length) {
   Node *head = new_list(values[0]);
-  for (int i=1; i<length; i++) {
+  for (int i = 1; i < length; i++) {
     head = push(head, values[i]);
   }
 
@@ -106,10 +101,7 @@ void run_tests() {
   test("destructor", test_destructor);
 }
 
-
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   run_tests();
   return 0;
 }

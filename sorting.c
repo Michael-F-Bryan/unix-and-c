@@ -1,24 +1,24 @@
+#include "sorting.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "sorting.h"
 
 #define TRUE 1
 #define FALSE 0
 
-
 // malloc a new Node and return a pointer to it.
-Node* new_list(int value) {
-  Node *temp = (Node*)malloc(sizeof(Node));
+Node *new_list(int value) {
+  Node *temp = (Node *)malloc(sizeof(Node));
   temp->next = NULL;
+  temp->previous = NULL;
   temp->value = value;
 
   return temp;
 }
 
 // Return a new list with value at the front and `head` as the tail.
-Node* push(Node *head, int value) {
-  Node *new = (Node*)malloc(sizeof(Node));
+Node *push(Node *head, int value) {
+  Node *new = (Node *)malloc(sizeof(Node));
   new->value = value;
   new->next = head;
 
@@ -36,7 +36,6 @@ int pop(Node **head) {
   return ret;
 }
 
-
 // Get the length of our linked list.
 int len(Node *head) {
   if (head == NULL) {
@@ -52,7 +51,6 @@ int len(Node *head) {
   return counter;
 }
 
-
 // Step through the list, freeing each node as you go.
 void free_list(Node *head) {
   while (head != NULL) {
@@ -66,7 +64,6 @@ void free_list(Node *head) {
     free(current);
   }
 }
-
 
 // Print out the list contents separated by spaces.
 void print_list(Node *head) {

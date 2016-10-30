@@ -16,7 +16,7 @@ run_tests: test
 %.o: %.c $(HEADERS)
 	gcc $(CFLAGS) -c $< -o $@
 
-test: $(OBJECTS)
+build_test: $(OBJECTS)
 	gcc $(CFLAGS) $(OBJECTS) -o $@
 
 clean:
